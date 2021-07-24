@@ -1,0 +1,32 @@
+<div class="container-fluid masthead pt-4">
+    <div class="card shadow-sm w-75 m-auto">
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+                <h1>
+                    Lista de Compras
+                </h1>
+                <button class="btn btn-primary d-flex align-items-center" [routerLink]="['/order', FLAG]" >
+                    <img class="mr-2 text-white" src="../../../assets/icons/plus.svg" alt="icone mais">
+                    Adicionar
+                </button>
+            </div>
+            <table class="table table-hover table-striped">
+                <thead>
+                    <th scope="col">ID da compra</th>
+                    <th scope="col">ID do cliente</th>
+                    <th scope="col">Data da compra</th>
+                    <th scope="col">Valor do frete</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let order of listPage" >
+                        <td [routerLink]="['/order', order.OrderID]" class="pointer">{{ order.OrderID }}</td>
+                        <td>{{ order.CustomerID }}</td>
+                        <td>{{ order.OrderDate | date: 'dd/MMM/yyyy'}}</td>
+                        <td>{{ order.Freight }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <pagination class="d-flex justify-content-center" [totalItems]="TOTAL_ITEMS" [itemsPerPage]="ITENS_PER_PAGE" [maxSize]="MAX_SIZE" [directionLinks]="DIRECTION_LINKS" [boundaryLinks]="BOUNDARY_LINKS" firstText="&laquo;" lastText="&raquo;" (pageChanged)="pageChanged($event)" ></pagination>
+        </div>
+    </div>
+</div>

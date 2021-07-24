@@ -1,0 +1,38 @@
+<div class="container-fluid masthead pt-4">
+    <div class="card shadow-sm w-75 m-auto">
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+                <h1>
+                    Lista de Produtos
+                </h1>
+                <button class="btn btn-primary d-flex align-items-center" [routerLink]="['/product', FLAG]" >
+                    <img class="mr-2 text-white" src="../../../assets/icons/plus.svg" alt="icone mais">
+                    Adicionar
+                </button>
+            </div>
+            <table class="table table-hover table-striped">
+                <thead>
+                    <th scope="col">ID Produto</th>
+                    <th scope="col">Nome do Produto</th>
+                    <th scope="col">ID Fornecedor</th>
+                    <th scope="col">Categoria</th>
+                    <th scope="col">Qtd. por unid.</th>
+                    <th scope="col">Preço por unid.</th>
+                    <th scope="col">Qtd. em estoque</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let p of listPage" >
+                        <td>{{ p.ProductID }}</td>
+                        <td [routerLink]="['/product', p.ProductID]" class="pointer">{{ p.ProductName }}</td>
+                        <td>{{ p.SupplierID }}</td>
+                        <td>{{ p.CategoryID }}</td>
+                        <td>{{ p.QuantityPerUnit }}</td>
+                        <td>{{ p.UnitPrice }}</td>
+                        <td>{{ p.UnitsInStock }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <pagination class="d-flex justify-content-center" [totalItems]="TOTAL_ITEMS" [itemsPerPage]="ITENS_PER_PAGE" [maxSize]="MAX_SIZE" [directionLinks]="DIRECTION_LINKS" [boundaryLinks]="BOUNDARY_LINKS" firstText="&laquo;" lastText="&raquo;" (pageChanged)="pageChanged($event)" ></pagination>
+        </div>
+    </div>
+</div>
