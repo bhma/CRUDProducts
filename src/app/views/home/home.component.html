@@ -1,0 +1,22 @@
+<header class="masthead">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center justify-content-center">
+            <div class="col-6 text-center">
+                <div class="card bg-light p-3 shadow">
+                    <div class="card-body">
+                        <h1 class="font-weight-light">
+                            Faça seu cadastro agora!
+                        </h1>
+                        <button [routerLink]="['/customer', 'newCustomer']" class="btn btn-primary btn-lg">
+                            Cadastrar
+                        </button>
+                        <a [routerLink]="['/login']" class="d-block mt-3">
+                            <small class="text-muted"> Já tenho cadastro.</small>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

@@ -1,0 +1,93 @@
+<div class="container-fluid masthead pt-4">
+    <div class="card shadow-sm w-75 m-auto">
+        <div class="card-header">
+            <div class="d-flex justify-content-between align-items-center">
+                <h1>
+                    <span *ngIf="customerId === 'newCustomer'">Novo Cliente</span>
+                    <span *ngIf="customerId !== 'newCustomer'"
+                        >Detalhes do Cliente {{ customerId }}</span
+                    >
+                </h1>
+                <div>
+                    <button class="btn btn-danger" (click)="onDelete()">
+                        <img src="../../../assets/icons/trash.png" alt="btn excluir" />
+                        Excluir
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <form [formGroup]="formCustomer" (ngSubmit)="onSubmit()">
+                <div class="row">
+                    <div class="form-group col-4">
+                        <label for="customerId">ID do Cliente</label>
+                        <input formControlName="CustomerID" id="customerId" type="text" class="form-control">
+                    </div>
+                    <div class="form-group col">
+                        <label for="companyName">Nome da Empresa</label>
+                        <input formControlName="CompanyName" id="companyName" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col">
+                        <label for="contactName">Nome para Contato</label>
+                        <input formControlName="ContactName" id="contactName" type="text" class="form-control">
+                    </div>
+                    <div class="form-group col">
+                        <label for="contactTitle">Cargo do Contato</label>
+                        <input formControlName="ContactTitle" id="contactTitle" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col">
+                        <label for="address">Endereço</label>
+                        <input formControlName="Address" id="address" type="text" class="form-control">
+                    </div>
+                    <div class="form-group col">
+                        <label for="city">Cidade</label>
+                        <input formControlName="City" id="city" type="text" class="form-control">
+                    </div>
+                    <div class="form-group col">
+                        <label for="region">Estado</label>
+                        <input formControlName="Region" id="region" type="text" class="form-control">
+                    </div>
+                    <div class="form-group col">
+                        <label for="postalCode">CEP</label>
+                        <input formControlName="PostalCode" id="postalCode" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col">
+                        <label for="country">País</label>
+                        <input formControlName="Country" id="country" type="text" class="form-control">
+                    </div>
+                    <div class="form-group col">
+                        <label for="phone">Telefone</label>
+                        <input formControlName="Phone" id="phone" type="text" class="form-control">
+                    </div>
+                    <div class="form-group col">
+                        <label for="fax">Fax</label>
+                        <input formControlName="Fax" id="fax" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="w-100 d-flex justify-content-center">
+                    <button class="btn btn-success mr-2" type="submit">
+                        <img
+                            src="../../../assets/icons/save-24.png"
+                            alt="btn salvar"
+                        />
+                        Salvar
+                    </button>
+                    <button class="btn btn-secondary" [routerLink]="['/customers']">
+                        <img
+                            src="../../../assets/icons/back-arrow.png"
+                            alt="btn voltar"
+                            class="icon-size"
+                        />
+                        Cancelar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

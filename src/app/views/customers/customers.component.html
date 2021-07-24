@@ -1,0 +1,42 @@
+<div class="container-fluid masthead pt-4">
+    <div class="card shadow-sm w-75 m-auto">
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+                <h1>Lista de Clientes</h1>
+                <button
+                    class="btn btn-primary d-flex align-items-center"
+                    [routerLink]="['/customer', FLAG]"
+                >
+                    <img
+                        class="mr-2 text-white"
+                        src="../../../assets/icons/plus.svg"
+                        alt="icone mais"
+                    />
+                    Adicionar
+                </button>
+            </div>
+            <table class="table table-hover table-striped">
+                <thead>
+                    <th scope="col">Nome da Empresa</th>
+                    <th scope="col">Nome para contato</th>
+                    <th scope="col">Cidade</th>
+                    <th scope="col">Telefone</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let c of listPage" >
+                        <td [routerLink]="['/customer', c.CustomerID]" class="pointer">
+                            {{ c.CompanyName }}
+                        </td>
+                        <td>{{ c.ContactName }}</td>
+                        <td>{{ c.City }}</td>
+                        <td>{{ c.Phone }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <pagination class="d-flex justify-content-center" [totalItems]="TOTAL_ITEMS" [itemsPerPage]="ITENS_PER_PAGE" [maxSize]="MAX_SIZE" [directionLinks]="DIRECTION_LINKS" [boundaryLinks]="BOUNDARY_LINKS" firstText="&laquo;" lastText="&raquo;" (pageChanged)="pageChanged($event)" ></pagination>
+    
+        </div>
+    </div>
+</div>
+
